@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import fs from "fs";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -35,6 +35,7 @@ const auth = (req, res, next) => {
     if (decoded.username || decoded.payload.username) next();
     else res.sendStatus(401);
   } catch (err) {
+    response.send("Unauthorized")
     console.log("err",err)
   }
 };
@@ -49,6 +50,7 @@ async function main() {
 
 server.use("/auth", authRouter);
 server.use("/qwertyuiop",auth, userRouter);
+
 server.use('/dashboard',auth,(req, res) => {
   res.sendFile(path.resolve(__dirname, process.env.PUBLIC_DIR, "index.html"));
 });
