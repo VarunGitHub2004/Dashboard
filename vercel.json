@@ -1,5 +1,5 @@
 {
-    "dist":[
+    "build":[
         {
             "src":"index.js",
             "use":"@vercel/node"
