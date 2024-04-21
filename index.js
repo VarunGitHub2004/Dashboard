@@ -15,9 +15,7 @@ const publicKey = fs.readFileSync(
   "utf-8"
 );
 const server = express();
-import {LocalStorage} from 'node-localstorage'
 import cookieParser from "cookie-parser";
-var localStorage=new LocalStorage('/')
 dotenv.config();
 //bodyParser
 server.use(express.json());
