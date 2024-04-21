@@ -49,12 +49,14 @@ async function main() {
 
 server.use("/auth", authRouter);
 server.use("/qwertyuiop",auth, userRouter);
-
+server.get("/hello",(req,res)=>{
+  res.send("Hello")
+})
 server.use('/dashboard',auth,(req, res) => {
   res.sendFile(path.resolve(__dirname, process.env.PUBLIC_DIR, "index.html"));
 });
 
-const withoutAuth = [ "/confirmation", "/avatar", "/bring", "/signin","/signup"];
+const withoutAuth = [ "/confirmation", "/avatar", "/bring", "/signin","/"];
 withoutAuth.map(wAuth => {
   server.use(wAuth, (req, res) => {
     res.sendFile(path.resolve(__dirname, process.env.PUBLIC_DIR, "index.html"));
