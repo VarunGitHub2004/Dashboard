@@ -43,8 +43,7 @@ main()
   .then(res => console.log("Database connected"))
   .catch(err=> console.log("Database could not connected"));
 async function main() {
-  await mongoose.connect(
-    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@mongodemodatabase.k8qsptd.mongodb.net/assignments`
+  await mongoose.connect(process.env.MONGO_URL
   );
 }
 
