@@ -33,7 +33,7 @@ const auth = (req, res, next) => {
     if (decoded.username || decoded.payload.username) next();
     else res.sendStatus(401);
   } catch (err) {
-    response.send("Unauthorized")
+    response.sendStatus(301)
     console.log("err",err)
   }
 };
