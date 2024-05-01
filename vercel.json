@@ -1,0 +1,58 @@
+{
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "build/**",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/qwertyuiop",
+        "dest": "index.js"
+      },
+      {
+        "src": "/auth/(.*)",
+        "dest": "index.js"
+      },
+      {
+        "src": "/auth/signin",
+        "dest": "index.js"
+      },
+      {
+        "src": "/auth/signup",
+        "dest": "index.js"
+      },
+      {
+        "src": "/signin",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/avatar",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/confirmation",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/bring",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/dashboard",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/",
+        "dest": "build/index.html"
+      },
+      {
+        "src": "/(.+)",
+        "dest": "build/$1"
+      }
+    ]
+  }
